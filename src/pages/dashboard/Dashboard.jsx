@@ -1,49 +1,57 @@
-import React, { useMemo } from "react";
-import DashboardStat from "../../components/ui/DashboardStat";
-import useJsonData from "../../hooks/useJsonData";
-import studentsData from "../../data/students.json";
-import staffData from "../../data/staff.json";
-import academicData from "../../data/academic.json";
-import financeData from "../../data/finance.json";
+import React, { useMemo } from 'react';
+import DashboardStat from '../../components/ui/DashboardStat';
+import useJsonData from '../../hooks/useJsonData';
+import studentsData from '../../data/students.json';
+import staffData from '../../data/staff.json';
+import academicData from '../../data/academic.json';
+import financeData from '../../data/finance.json';
+import { FiUsers, FiUserCheck, FiBook, FiTrendingUp } from 'react-icons/fi';
 
 const Dashboard = () => {
-  const [students] = useJsonData("school-students", studentsData);
-  const [staff] = useJsonData("school-staff", staffData);
-  const [academic] = useJsonData("academic-classes", academicData);
-  const [finance] = useJsonData("finance-data", financeData);
+  const [students] = useJsonData('school-students', studentsData);
+  const [staff] = useJsonData('school-staff', staffData);
+  const [academic] = useJsonData('academic-classes', academicData);
+  const [finance] = useJsonData('finance-data', financeData);
 
-  const stats = useMemo(() => {
-    const collected = finance.tracking?.reduce((sum, item) => sum + Number(String(item.amount).replace(/[^0-9]/g, "")), 0) ?? 0;
-    return [
-      { label: "Total Students", value: students.length },
-      { label: "Staff Members", value: staff.length },
-      { label: "Classes", value: academic.classes?.length ?? 0 },
-      { label: "Fees Collected", value: `KES ${collected.toLocaleString()}` },
-    ];
-  }, [students, staff, academic, finance]);
+  const collected = useMemo(() => {
+    return (finance.tracking ?? []).reduce((sum, item) => sum + Number(String(item.amount).replace(/[^0-9]/g, '')), 0);
+  }, [finance]);
+
+  const stats = [
+    { label: 'Total Students', value: students.length, icon: <FiUsers size={20} />, color: '#0ea5a4', subtitle: 'Active learners' },
+    { label: 'Staff Members', value: staff.length, icon: <FiUserCheck size={20} />, color: '#7c3aed', subtitle: 'Teaching & admin' },
+    { label: 'Classes', value: academic.classes?.length ?? 0, icon: <FiBook size={20} />, color: '#f97316', subtitle: 'Class groups' },
+    { label: 'Fees Collected', value: `KES ${collected.toLocaleString()}`, icon: <FiTrendingUp size={20} />, color: '#2563eb', subtitle: 'This term' },
+  ];
 
   return (
-    <div style={{ display: "grid", gap: "20px" }}>
-      <div>
-        <h1 className="dashboard-title" style={{ margin: "0 0 8px 0", color: "#1e293b" }}>Dashboard Overview</h1>
-        <p style={{ margin: 0, color: "#64748b" }}>A live summary of student, staff, academic, and finance activity.</p>
-      </div>
-      <div className="dashboard-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px" }}>
-        {stats.map((item, index) => (
-          <DashboardStat key={`${item.label}-${index}`} {...item} />
-        ))}
-      </div>
+    <div style={{ display: 'grid', gap: '20px' }}>
+      <header style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+        <h1 style={{ margin: 0, color: '#0f172a' }}>Welcome back — overview</h1>
+        <p style={{ margin: 0, color: '#64748b' }}>Quick stats to help you focus on what matters most today.</p>
+      </header>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "16px" }}>
-        <div style={{ background: "#fff", borderRadius: "12px", padding: "16px", boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }}>
-          <h3 style={{ margin: "0 0 8px" }}>Upcoming Focus</h3>
-          <p style={{ margin: "4px 0", color: "#64748b" }}>Review student attendance, fee balances, and lesson schedules.</p>
+      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
+        {stats.map((s, i) => (
+          <DashboardStat key={i} label={s.label} value={s.value} icon={s.icon} color={s.color} subtitle={s.subtitle} />
+        ))}
+      </section>
+
+      <section style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 16 }}>
+        <div style={{ background: '#fff', borderRadius: 12, padding: 16, boxShadow: '0 6px 20px rgba(2,6,23,0.06)' }}>
+          <h3 style={{ margin: '0 0 8px' }}>Activity Feed</h3>
+          <p style={{ margin: 0, color: '#64748b' }}>Recent actions: student enrollments, invoices, and timetable changes will appear here.</p>
         </div>
-        <div style={{ background: "#fff", borderRadius: "12px", padding: "16px", boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }}>
-          <h3 style={{ margin: "0 0 8px" }}>System Status</h3>
-          <p style={{ margin: "4px 0", color: "#64748b" }}>All core modules are now connected to editable local data.</p>
-        </div>
-      </div>
+
+        <aside style={{ background: '#fff', borderRadius: 12, padding: 16, boxShadow: '0 6px 20px rgba(2,6,23,0.06)' }}>
+          <h3 style={{ margin: '0 0 8px' }}>Today</h3>
+          <ul style={{ margin: 0, padding: 0, listStyle: 'none', color: '#64748b' }}>
+            <li>• 3 new student registrations</li>
+            <li>• 1 invoice overdue</li>
+            <li>• Timetable updated for Grade 10</li>
+          </ul>
+        </aside>
+      </section>
     </div>
   );
 };
