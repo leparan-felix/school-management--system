@@ -1,6 +1,5 @@
 import React from "react";
 import DashboardStat from "../../components/ui/DashboardStat";
-import Layout from "../../components/layout/Layout";
 
 const Dashboard = () => {
   const stats = [
@@ -11,14 +10,14 @@ const Dashboard = () => {
   ];
 
   return (
-    <Layout>
-      <h1 className="dashboard-title">Dashboard Overview</h1>
-      <div className="dashboard-grid">
+    <div>
+      <h1 className="dashboard-title" style={{ margin: "0 0 20px 0", color: "#1e293b" }}>Dashboard Overview</h1>
+      <div className="dashboard-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px" }}>
         {stats.map((s, i) => (
           <DashboardStat key={i} {...s} />
         ))}
       </div>
-    </Layout>
+    </div>
   );
 };
 
