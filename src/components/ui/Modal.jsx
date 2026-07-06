@@ -1,18 +1,42 @@
-import React from "react";
+import React from 'react';
 
 const Modal = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
+
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/40">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-        <h2 className="text-lg font-semibold mb-4">{title}</h2>
+    <div
+      role="dialog"
+      aria-modal="true"
+      onClick={onClose}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(15, 23, 42, 0.45)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '16px',
+        zIndex: 1000,
+      }}
+    >
+      <div
+        onClick={(event) => event.stopPropagation()}
+        style={{
+          background: '#fff',
+          borderRadius: '12px',
+          padding: '20px',
+          width: '100%',
+          maxWidth: '420px',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+        }}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+          <h2 style={{ margin: 0, fontSize: '1.1rem' }}>{title}</h2>
+          <button onClick={onClose} style={{ border: 'none', background: 'transparent', cursor: 'pointer', fontSize: '1rem' }}>
+            ✕
+          </button>
+        </div>
         {children}
-        <button
-          onClick={onClose}
-          className="mt-4 px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded"
-        >
-          Close
-        </button>
       </div>
     </div>
   );

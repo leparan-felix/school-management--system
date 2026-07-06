@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Leparan Sopia",
+    "admission": "ADM-1024",
+    "className": "Grade 10A",
+    "guardian": "Sarah Sopia",
+    "contact": "+254 700 123 456",
+    "status": "Active",
+    "attendance": "96%"
+  },
+  {
+    "id": 2,
+    "name": "Jane Kimani",
+    "admission": "ADM-1025",
+    "className": "Grade 9B",
+    "guardian": "Peter Kimani",
+    "contact": "+254 700 987 654",
+    "status": "Active",
+    "attendance": "94%"
+  },
+  {
+    "id": 3,
+    "name": "Amina Yusuf",
+    "admission": "ADM-1026",
+    "className": "Grade 8C",
+    "guardian": "Hassan Yusuf",
+    "contact": "+254 700 555 111",
+    "status": "Pending",
+    "attendance": "91%"
+  }
+]

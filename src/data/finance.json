@@ -1,0 +1,14 @@
+{
+  "tracking": [
+    { "id": 1, "student": "Leparan Sopia", "amount": "KES 15,000", "dueDate": "2026-07-10", "status": "Pending" },
+    { "id": 2, "student": "Jane Kimani", "amount": "KES 9,500", "dueDate": "2026-07-14", "status": "Paid" }
+  ],
+  "invoices": [
+    { "id": 1, "invoiceId": "INV-1001", "student": "Leparan Sopia", "amount": "KES 15,000", "status": "Paid", "dueDate": "2026-06-30" },
+    { "id": 2, "invoiceId": "INV-1002", "student": "Jane Kimani", "amount": "KES 9,500", "status": "Pending", "dueDate": "2026-07-15" }
+  ],
+  "receipts": [
+    { "id": 1, "receiptId": "RCPT-204", "student": "Leparan Sopia", "amount": "KES 15,000", "date": "2026-06-28" },
+    { "id": 2, "receiptId": "RCPT-205", "student": "Jane Kimani", "amount": "KES 9,500", "date": "2026-06-29" }
+  ]
+}

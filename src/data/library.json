@@ -1,0 +1,4 @@
+[
+  { "id": 1, "title": "The Great Gatsby", "borrower": "Leparan Sopia", "due": "2026-07-09" },
+  { "id": 2, "title": "Biology Basics", "borrower": "Jane Kimani", "due": "2026-07-15" }
+]

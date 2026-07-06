@@ -1,0 +1,4 @@
+[
+  { "id": 1, "student": "Amina Yusuf", "issue": "Mild fever", "status": "Observed" },
+  { "id": 2, "student": "John Mwangi", "issue": "Minor cut", "status": "Treated" }
+]

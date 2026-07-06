@@ -1,0 +1,4 @@
+[
+  { "id": 1, "route": "Route A", "driver": "James Kariuki", "bus": "Bus 02", "status": "On Time" },
+  { "id": 2, "route": "Route B", "driver": "Mary Wanjiku", "bus": "Bus 05", "status": "Delayed" }
+]

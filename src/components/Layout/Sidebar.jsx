@@ -6,6 +6,8 @@ export default function Sidebar() {
   const [openMenus, setOpenMenus] = useState({
     students: false,
     finance: false,
+    library: false,
+    transport: false,
     academic: false,
   });
 
@@ -140,6 +142,12 @@ export default function Sidebar() {
         </NavLink>
         <NavLink to="/health" style={({ isActive }) => ({ display: "flex", alignItems: "center", gap: "12px", padding: "10px 15px", textDecoration: "none", borderRadius: "6px", fontSize: "14px", color: isActive ? "#ffffff" : "#94a3b8", backgroundColor: isActive ? "#2563eb" : "transparent" })}>
           <span>🏥</span><span>Health Logs</span>
+        </NavLink>
+        <NavLink to="/communication" style={({ isActive }) => ({ display: "flex", alignItems: "center", gap: "12px", padding: "10px 15px", textDecoration: "none", borderRadius: "6px", fontSize: "14px", color: isActive ? "#ffffff" : "#94a3b8", backgroundColor: isActive ? "#2563eb" : "transparent" })}>
+          <span>📢</span><span>Communication</span>
+        </NavLink>
+        <NavLink to="/reports" style={({ isActive }) => ({ display: "flex", alignItems: "center", gap: "12px", padding: "10px 15px", textDecoration: "none", borderRadius: "6px", fontSize: "14px", color: isActive ? "#ffffff" : "#94a3b8", backgroundColor: isActive ? "#2563eb" : "transparent" })}>
+          <span>📄</span><span>Reports</span>
         </NavLink>
 
       </nav>

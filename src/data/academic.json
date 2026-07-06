@@ -1,0 +1,18 @@
+{
+  "classes": [
+    { "id": 1, "name": "Grade 10A", "teacher": "Mr. Otieno", "strength": 38, "stream": "Science" },
+    { "id": 2, "name": "Grade 9B", "teacher": "Ms. Njeri", "strength": 34, "stream": "Arts" }
+  ],
+  "exams": [
+    { "id": 1, "subject": "Mathematics", "date": "2026-07-12", "venue": "Hall A", "status": "Scheduled" },
+    { "id": 2, "subject": "English", "date": "2026-07-14", "venue": "Hall B", "status": "Planned" }
+  ],
+  "subjects": [
+    { "id": 1, "name": "Mathematics", "level": "Grade 10", "lessons": 4, "teacher": "Mr. Otieno" },
+    { "id": 2, "name": "English", "level": "Grade 10", "lessons": 3, "teacher": "Ms. Njeri" }
+  ],
+  "timetable": [
+    { "id": 1, "day": "Monday", "period": "8:00-9:00", "className": "Grade 10A", "subject": "Mathematics" },
+    { "id": 2, "day": "Tuesday", "period": "10:00-11:00", "className": "Grade 9B", "subject": "English" }
+  ]
+}
