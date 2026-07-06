@@ -82,6 +82,40 @@ export default function Sidebar() {
           )}
         </div>
 
+        {/* --- CATEGORY : LIBRARY --- */}
+        <div>
+          <button onClick={() => toggleMenu("library")} style={activeCategoryStyle}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", flex: 1 }}>
+              <span>📚</span><span>Library Management</span>
+            </div>
+            <span>{openMenus.library ? "▼" : "►"}</span>
+          </button>
+          {openMenus.library && (
+            <div style={{ display: "flex", flexDirection: "column", gap: "4px", marginTop: "4px" }}>
+              <NavLink to="/library/books" style={subLinkStyle}>• Book Inventory</NavLink>
+              <NavLink to="/library/checkout" style={subLinkStyle}>• Checkout Records</NavLink>
+              <NavLink to="/library/reservations" style={subLinkStyle}>• Reservation System</NavLink>
+            </div>
+          )}
+        </div>
+        {/* --- CATEGORY : TRANSPORT --- */}
+        <div>
+          <button onClick={() => toggleMenu("transport")} style={activeCategoryStyle}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", flex: 1 }}>
+              <span>🚌</span><span>Transport Logs</span>
+            </div>
+            <span>{openMenus.transport ? "▼" : "►"}</span>
+           
+          </button>
+          {openMenus.transport && (
+            <div style={{ display: "flex", flexDirection: "column", gap: "4px", marginTop: "4px" }}>
+              <NavLink to="/transport/routes" style={subLinkStyle}>• Route Planner</NavLink>
+              <NavLink to="/transport/vehicles" style={subLinkStyle}>• Vehicle Registry</NavLink>
+              <NavLink to="/transport/drivers" style={subLinkStyle}>• Driver Logs</NavLink>
+            </div>
+          )}
+        </div>
+
         {/* --- CATEGORY 3: ACADEMIC --- */}
         <div>
           <button onClick={() => toggleMenu("academic")} style={activeCategoryStyle}>
