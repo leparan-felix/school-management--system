@@ -15,7 +15,7 @@ export default function Header() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <span style={{ fontSize: '22px' }}>🏫</span>
         <h2 style={{ margin: 0, fontSize: '18px', fontWeight: '700', color: '#0f172a', letterSpacing: '-0.5px' }}>
-          EduPulse <span style={{ color: '#2563eb', fontSize: '12px', fontWeight: '500', verticalAlign: 'super', marginLeft: '4px' }}>v1.0</span>
+          Edu Academy <span style={{ color: '#2563eb', fontSize: '12px', fontWeight: '500', verticalAlign: 'super', marginLeft: '4px' }}> school</span>
         </h2>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
